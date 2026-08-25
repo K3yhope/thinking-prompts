@@ -4,8 +4,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  ![Language](https://img.shields.io/badge/language-%E4%B8%AD%E6%96%87-blue)  ![Codex Skill](https://img.shields.io/badge/Codex-Skill-black)  ![Prompt Modes](https://img.shields.io/badge/prompt_modes-12-orange)
 
-
-
 ## 目录
 
 - [为什么需要它](#为什么需要它)
@@ -21,8 +19,6 @@
 - [贡献](#贡献)
 - [许可证与鸣谢](#许可证与鸣谢)
 
-
-
 ## 为什么需要它
 
 AI 时代，很多人都有一种说不清的「底层能力焦虑」：
@@ -36,10 +32,7 @@ AI 时代，很多人都有一种说不清的「底层能力焦虑」：
 
 说到底，你真正想解决的困扰只有一句： ` **脑子乱、人生迷。** `
 
-
 我们缺的从来不是某个具体技能，而是一套把问题想透、把人生理顺的方法。`thinking-prompts` 就是来接住这些困扰的。
-
-
 
 ## 核心亮点
 
@@ -52,27 +45,24 @@ AI 时代，很多人都有一种说不清的「底层能力焦虑」：
 - **按需加载**：主入口只负责路由，具体模板放在 `references/`。
 - **可复用模板**：支持把任意场景改写成可复制的 Prompt。
 
-
-
 ## 12 个 Prompt 模式速查
 
-| 场景 | 模式 | 内部模块 | 适合的问题 |
-|---|---|---|---|
-| 问清问题 | 苏格拉底式提问 | `socratic-clarifier` | 我现在很乱，不知道真正要问什么 |
-| 学习概念 | 双层解释法 | `dual-layer-explainer` | 这个概念听不懂，想先听懂再深入 |
-| 拆解案例 | 反向拆解 | `reverse-breakdown` | 这个产品 / 页面 / 方案为什么做得好 |
-| 深度研究 | 横纵分析法 | `horizontal-vertical-research` | 系统研究一个公司、行业、技术或事件 |
-| 核查真假 | 事实核查 | `fact-checking` | 这个观点、数据、结论到底靠谱吗 |
-| 多视角会诊 | 专家会诊 | `expert-panel` | 需要多个视角互相挑战后给方案 |
-| 回到本质 | 第一性原理 | `first-principles` | 当前方案像在打补丁，想重新推导 |
-| 借鉴外部 | 跨领域借解 | `cross-domain-borrowing` | 想从其他行业找类似问题的解法 |
-| 困难决策 | 双向钢人论证 | `steelman-decision` | A 和 B 都有道理，不知道怎么选 |
-| 现实验证 | 最小实验 | `minimum-experiment` | 不想继续空想，想低成本试一次 |
-| 认识自己 | 挖掘隐藏天赋 | `talent-miner` | 想知道自己的底层天赋和优势 |
-| 设计未来 | 人生设计术 | `life-designer` | 想生成多个未来版本和原型行动 |
+| 场景       | 模式           | 内部模块                       | 适合的问题                         |
+| ---------- | -------------- | ------------------------------ | ---------------------------------- |
+| 问清问题   | 苏格拉底式提问 | `socratic-clarifier`           | 我现在很乱，不知道真正要问什么     |
+| 学习概念   | 双层解释法     | `dual-layer-explainer`         | 这个概念听不懂，想先听懂再深入     |
+| 拆解案例   | 反向拆解       | `reverse-breakdown`            | 这个产品 / 页面 / 方案为什么做得好 |
+| 深度研究   | 横纵分析法     | `horizontal-vertical-research` | 系统研究一个公司、行业、技术或事件 |
+| 核查真假   | 事实核查       | `fact-checking`                | 这个观点、数据、结论到底靠谱吗     |
+| 多视角会诊 | 专家会诊       | `expert-panel`                 | 需要多个视角互相挑战后给方案       |
+| 回到本质   | 第一性原理     | `first-principles`             | 当前方案像在打补丁，想重新推导     |
+| 借鉴外部   | 跨领域借解     | `cross-domain-borrowing`       | 想从其他行业找类似问题的解法       |
+| 困难决策   | 双向钢人论证   | `steelman-decision`            | A 和 B 都有道理，不知道怎么选      |
+| 现实验证   | 最小实验       | `minimum-experiment`           | 不想继续空想，想低成本试一次       |
+| 认识自己   | 挖掘隐藏天赋   | `talent-miner`                 | 想知道自己的底层天赋和优势         |
+| 设计未来   | 人生设计术     | `life-designer`                | 想生成多个未来版本和原型行动       |
 
 > 隐式调用审计逻辑单独存放在 `references/implicit-invocation-audit.md`，用于校准「自然语言 → 模式」的匹配规则。
-
 
 ## 安装
 
@@ -92,8 +82,6 @@ AI 时代，很多人都有一种说不清的「底层能力焦虑」：
 - 保留 `thinking-prompts/references/` 下的 12 个 Prompt 模块（及隐式调用审计模块）。
 - 若工具支持自动触发，确保它会读取 `SKILL.md` frontmatter 中的 `description`。
 - 若工具支持显式调用，调用名称通常来自目录名或 `name: thinking-prompts`。
-
-
 
 ## 快速开始
 
@@ -116,8 +104,6 @@ $thinking-prompts 帮我解释一下什么是第一性原理
 ```
 
 **前置条件**：你的工具需要支持 Agent Skills / `SKILL.md` 结构（如 Claude Code、Codex、WorkBuddy 等）。
-
-
 
 ## 使用示例
 
@@ -157,17 +143,13 @@ $thinking-prompts 帮我解释一下什么是第一性原理
 $thinking-prompts 把“分析一个创业想法是否值得做”改写成可复制 Prompt
 ```
 
-
-
 ## 输出强度
 
-| 强度 | 触发说法 | 适合场景 |
-|---|---|---|
-| 轻量 | 简单讲、快速说下、一句话说 | 先拿到核心判断 |
+| 强度 | 触发说法                         | 适合场景               |
+| ---- | -------------------------------- | ---------------------- |
+| 轻量 | 简单讲、快速说下、一句话说       | 先拿到核心判断         |
 | 标准 | 解释一下、帮我分析一下、拆解一下 | 默认强度，完整但不啰嗦 |
-| 深度 | 深入研究、详细展开、系统分析 | 需要完整框架和更多细节 |
-
-
+| 深度 | 深入研究、详细展开、系统分析     | 需要完整框架和更多细节 |
 
 ## 意图不清时怎么办
 
@@ -185,7 +167,6 @@ $thinking-prompts 把“分析一个创业想法是否值得做”改写成可�
 你更想快速理解、系统研究，还是核查某个说法真假？
 ```
 
-
 ## 不适合的场景
 
 以下请求通常**不应**触发本 Skill：
@@ -195,7 +176,6 @@ $thinking-prompts 把“分析一个创业想法是否值得做”改写成可�
 - 普通翻译、普通总结、普通事实问答。
 - 医疗、法律、财务等高风险专业建议。
 - 紧急危机或安全风险场景。
-
 
 ## 项目结构
 
@@ -220,8 +200,6 @@ thinking-prompts/
     └── implicit-invocation-audit.md   # 隐式调用审计
 ```
 
-
-
 ## 贡献
 
 欢迎一起让这套思考工具更好用：
@@ -233,10 +211,8 @@ thinking-prompts/
 
 如有疑问，欢迎开 Issue 讨论。
 
-
-
 ## 许可证与鸣谢
 
 本项目基于 [MIT 许可证](LICENSE) 开源。
 
-鸣谢 [@KKKKhazix](https://github.com/KKKKhazix)：提供了优秀的 Prompts
+鸣谢 [@KKKKhazix](https://github.com/KKKKhazix)：提供了优秀的 Prompts。
