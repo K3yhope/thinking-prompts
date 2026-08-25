@@ -1,0 +1,6 @@
+interface:
+  display_name: "思考 Prompt 总入口"
+  short_description: "帮你问清问题、学习、决策和认识自己"
+  default_prompt: "Use $thinking-prompts to route my request to the right thinking prompt."
+policy:
+  allow_implicit_invocation: true
