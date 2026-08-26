@@ -1,2 +1,4 @@
 .ghconfig/
 *.rar
+__pycache__/
+*.pyc

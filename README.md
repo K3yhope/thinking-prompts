@@ -41,7 +41,7 @@ AI 时代，很多人都有一种说不清的「底层能力焦虑」：
 - **隐式调用**：用自然语言随口一说也能触发，不必每次都背 Skill 名称。
 - **中文优先**：默认用中文理解、追问和输出。
 - **三档输出**：轻量 / 标准 / 深度，按你的表达自动选择。
-- **状态可见**：每次输出第一行显示当前启用的模式与输出强度。
+- **状态可见**：默认可显示当前模式与输出强度；严格输出格式下自动省略。
 - **按需加载**：主入口只负责路由，具体模板放在 `references/`。
 - **可复用模板**：支持把任意场景改写成可复制的 Prompt。
 
@@ -62,7 +62,7 @@ AI 时代，很多人都有一种说不清的「底层能力焦虑」：
 | 认识自己   | 挖掘隐藏天赋   | `talent-miner`                 | 想知道自己的底层天赋和优势         |
 | 设计未来   | 人生设计术     | `life-designer`                | 想生成多个未来版本和原型行动       |
 
-> 隐式调用审计逻辑单独存放在 `references/implicit-invocation-audit.md`，用于校准「自然语言 → 模式」的匹配规则。
+> 隐式调用人工评测语料存放在 `references/implicit-invocation-audit.md`，用于记录和复查「自然语言 → 模式」的匹配结果。
 
 ## 安装
 
@@ -79,7 +79,7 @@ AI 时代，很多人都有一种说不清的「底层能力焦虑」：
 **最低要求：**
 
 - 保留 `thinking-prompts/SKILL.md`。
-- 保留 `thinking-prompts/references/` 下的 12 个 Prompt 模块（及隐式调用审计模块）。
+- 保留整个 `thinking-prompts/references/`，其中包含 12 个模式、按需加载的可复制模板和隐式调用评测语料。
 - 若工具支持自动触发，确保它会读取 `SKILL.md` frontmatter 中的 `description`。
 - 若工具支持显式调用，调用名称通常来自目录名或 `name: thinking-prompts`。
 
@@ -97,7 +97,7 @@ $thinking-prompts 帮我解释一下什么是第一性原理
 我现在有点乱，先别给建议，帮我把真正的问题想清楚
 ```
 
-输出会以类似下面的格式开始，让你一眼知道当前处在哪个模式：
+未指定严格输出格式时，输出可能以类似下面的格式开始，让你知道当前处在哪个模式：
 
 ```text
 当前启用：苏格拉底式提问｜输出强度：标准
@@ -197,7 +197,10 @@ thinking-prompts/
     ├── minimum-experiment.md          # 最小实验
     ├── talent-miner.md                # 挖掘隐藏天赋
     ├── life-designer.md               # 人生设计术
-    └── implicit-invocation-audit.md   # 隐式调用审计
+    ├── implicit-invocation-audit.md   # 隐式调用人工评测语料
+    └── prompt-templates/              # 仅生成可复制 Prompt 时加载
+        ├── life-designer.md
+        └── talent-miner.md
 ```
 
 ## 贡献
