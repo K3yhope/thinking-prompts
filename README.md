@@ -6,11 +6,11 @@
 
 ## 目录
 
+- [安装](#安装)
+- [快速开始](#快速开始)
 - [为什么需要它](#为什么需要它)
 - [核心亮点](#核心亮点)
 - [12 个 Prompt 模式速查](#12-个-prompt-模式速查)
-- [安装](#安装)
-- [快速开始](#快速开始)
 - [使用示例](#使用示例)
 - [输出强度](#输出强度)
 - [意图不清时怎么办](#意图不清时怎么办)
@@ -18,6 +18,47 @@
 - [项目结构](#项目结构)
 - [贡献](#贡献)
 - [许可证与鸣谢](#许可证与鸣谢)
+
+## 安装
+
+在 Claude Code、Codex 等支持 Agent Skills 的工具里，直接说：
+
+```bash
+帮我安装这个 skill：https://github.com/K3yhope/thinking-prompts
+```
+
+### 其他兼容 Agent Skills 的工具
+
+只要你的 Agent 支持 Agent Skills / `SKILL.md` 结构，通常只需把整个 `thinking-prompts/` 文件夹复制到该工具约定的 skills 目录即可。
+
+**最低要求：**
+
+- 保留 `thinking-prompts/SKILL.md`。
+- 保留 `thinking-prompts/references/` 下的 12 个 Prompt 模块（及隐式调用审计模块）。
+- 若工具支持自动触发，确保它会读取 `SKILL.md` frontmatter 中的 `description`。
+- 若工具支持显式调用，调用名称通常来自目录名或 `name: thinking-prompts`。
+
+## 快速开始
+
+**显式调用：**
+
+```text
+$thinking-prompts 帮我解释一下什么是第一性原理
+```
+
+**隐式调用（不需要记名称）：**
+
+```text
+我现在有点乱，先别给建议，帮我把真正的问题想清楚
+```
+
+输出会以类似下面的格式开始，让你一眼知道当前处在哪个模式：
+
+```text
+当前启用：苏格拉底式提问｜输出强度：标准
+```
+
+**前置条件**：你的工具需要支持 Agent Skills / `SKILL.md` 结构（如 Claude Code、Codex、WorkBuddy 等）。
 
 ## 为什么需要它
 
@@ -63,47 +104,6 @@ AI 时代，很多人都有一种说不清的「底层能力焦虑」：
 | 设计未来   | 人生设计术     | `life-designer`                | 想生成多个未来版本和原型行动       |
 
 > 隐式调用审计逻辑单独存放在 `references/implicit-invocation-audit.md`，用于校准「自然语言 → 模式」的匹配规则。
-
-## 安装
-
-在 Claude Code、Codex 等支持 Agent Skills 的工具里，直接说：
-
-```bash
-帮我安装这个 skill：https://github.com/K3yhope/thinking-prompts
-```
-
-### 其他兼容 Agent Skills 的工具
-
-只要你的 Agent 支持 Agent Skills / `SKILL.md` 结构，通常只需把整个 `thinking-prompts/` 文件夹复制到该工具约定的 skills 目录即可。
-
-**最低要求：**
-
-- 保留 `thinking-prompts/SKILL.md`。
-- 保留 `thinking-prompts/references/` 下的 12 个 Prompt 模块（及隐式调用审计模块）。
-- 若工具支持自动触发，确保它会读取 `SKILL.md` frontmatter 中的 `description`。
-- 若工具支持显式调用，调用名称通常来自目录名或 `name: thinking-prompts`。
-
-## 快速开始
-
-**显式调用：**
-
-```text
-$thinking-prompts 帮我解释一下什么是第一性原理
-```
-
-**隐式调用（不需要记名称）：**
-
-```text
-我现在有点乱，先别给建议，帮我把真正的问题想清楚
-```
-
-输出会以类似下面的格式开始，让你一眼知道当前处在哪个模式：
-
-```text
-当前启用：苏格拉底式提问｜输出强度：标准
-```
-
-**前置条件**：你的工具需要支持 Agent Skills / `SKILL.md` 结构（如 Claude Code、Codex、WorkBuddy 等）。
 
 ## 使用示例
 
